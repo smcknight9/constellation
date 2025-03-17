@@ -1,12 +1,20 @@
-from pydantic import BaseModel
-from typing import List, Optional
+"""
+Search result schema module.
 
-class Entry(BaseModel):
-    id: int
-    title: str
-    content: str
-    created_at: str  # Or use `datetime` if needed
+This module defines the schema for search results using Pydantic.
+"""
+
+from typing import List, Any
+from pydantic import BaseModel
 
 class SearchResult(BaseModel):
+    """
+    Schema representing the result of a search operation.
+
+    Attributes:
+        query (str): The search query string.
+        results (List[Any]): A list of search result entries.
+            Replace 'Any' with a more specific type if available.
+    """
     query: str
-    results: List[Entry]
+    results: List[Any]
